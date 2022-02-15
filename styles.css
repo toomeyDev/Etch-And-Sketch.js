@@ -1,0 +1,15 @@
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: black;
+    color: white;
+    gap: 0.1%;
+}
+
+.grid .gridSquare {
+    margin: 1px;
+    flex: 1 0 6%;
+    background-color: white;
+    height: 50px;
+}
