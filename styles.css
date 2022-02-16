@@ -13,17 +13,19 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-content:flex-start;
     background-color: black;
     color: white;
     gap: 0.1%;
     margin: auto;
+    width: 960px;
+    height: 960px;
 }
 
-.grid .gridSquare {
-    margin: 1px;
-    flex: 1 0 6%;
+.gridSquare {
+    margin: 0.1px;
+    width: 35em;
     background-color: white;
-    height: 50px;
 }
 
 .active {
