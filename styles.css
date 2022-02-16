@@ -2,6 +2,13 @@ h1 {
     text-align: center;
 }
 
+#reset{
+    width: 80%;
+    display: block;
+    margin: auto;
+    margin-bottom: 1em;
+}
+
 .grid {
     display: flex;
     flex-wrap: wrap;

@@ -9,3 +9,13 @@ for(let i = 0; i < 16; i++){
         squaresGrid.appendChild(square);
     }
 }
+
+const resetButton = document.querySelector('#reset');
+resetButton.addEventListener('click', function() {
+    let squares = squaresGrid.querySelectorAll('div');
+    squares.forEach(
+        function(currentValue){
+            currentValue.style.backgroundColor = 'white';
+        } 
+    )
+});
