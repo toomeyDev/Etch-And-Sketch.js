@@ -1,7 +1,16 @@
 const grid = document.querySelector(".grid");
 const resetButton = document.querySelector("#reset");
-const rainbowButton = document.querySelector("#rainbow");
+const rainbowCheck = document.querySelector("#rainbow-mode");
 const numberBox = document.querySelector("#size");
+
+let isRainbow; // track if rainbow mode toggle is on or off
+if(rainbowCheck.checked) {
+    isRainbow = true; 
+} else { isRainbow = false; }
+
+rainbowCheck.addEventListener('change', function(){
+    colorize();
+});
 
 let currentSize = numberBox.value;
 
@@ -17,7 +26,7 @@ function createGrid(size) {
 
             // add event listener for mouseover event
             tile.addEventListener('mouseover', function() {
-                tile.style.backgroundColor = 'black';
+                colorize(tile);
             });
 
             tile.classList.add('tile');
@@ -30,6 +39,17 @@ function reset() {
     grid.innerHTML = "";
     currentSize = numberBox.value;
     createGrid(currentSize);
+}
+
+function colorize(tile) {
+    if(isRainbow){
+        red = Math.floor(Math.random() * 255);
+        green = Math.floor(Math.random() * 255);
+        blue = Math.floor(Math.random() * 255);
+        tile.style.backgroundColor = `rgb(${red},${green},${blue})`;
+    } else {
+        tile.style.backgroundColor = 'black';
+    }
 }
 
 // create initial 16x16 grid
