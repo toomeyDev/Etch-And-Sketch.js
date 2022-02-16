@@ -1,33 +1,24 @@
-h1 {
-    text-align: center;
+* {
+    box-sizing: border-box;
 }
 
-#reset{
-    width: 80%;
-    display: block;
-    margin: auto;
-    margin-bottom: 1em;
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 2em;
 }
 
 .grid {
+    width: 550px;
+    height: 550px;
+    border: 1px solid black;
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-content:flex-start;
-    background-color: black;
-    color: white;
-    gap: 0.1%;
-    margin: auto;
-    width: 960px;
-    height: 960px;
 }
 
-.gridSquare {
-    margin: 0.1px;
-    width: 35em;
-    background-color: white;
-}
-
-.active {
-    background-color: green;
+.tile {
+    height: 6.25%;
+    width: 6.25%;
+    border: 1px solid black;
+    flex: 0 1 auto;
 }

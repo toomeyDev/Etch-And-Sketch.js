@@ -1,35 +1,40 @@
-const squaresGrid = document.querySelector('.grid');
-drawGrid(16);
+const grid = document.querySelector(".grid");
+const resetButton = document.querySelector("#reset");
+const rainbowButton = document.querySelector("#rainbow");
+const numberBox = document.querySelector("#size");
 
-function drawGrid(size){
-    squaresGrid.innerHTML = "";
-    for(let i = 0; i < size; i++){
-        for(let r = 0; r < size; r++){
-            let square = document.createElement('div');
-            square.setAttribute('class', 'gridSquare');
-            square.addEventListener("mouseover", function (event){
-                event.target.style.backgroundColor = 'black';
+let currentSize = numberBox.value;
+
+function createGrid(size) {
+    for(let i = 0; i < size; i++) {
+        for(let x = 0; x < size; x++) {
+            let tile = document.createElement('div');
+            // get scale of an individual tile based on chosen size
+            let scale = 1/size * 100;
+            //adjust width and height to be proportional
+            tile.style.width = `${scale}%`;
+            tile.style.height = `${scale}%`;
+
+            // add event listener for mouseover event
+            tile.addEventListener('mouseover', function() {
+                tile.style.backgroundColor = 'black';
             });
-            squaresGrid.appendChild(square);
+
+            tile.classList.add('tile');
+            grid.appendChild(tile);
         }
     }
+};
+
+function reset() {
+    grid.innerHTML = "";
+    currentSize = numberBox.value;
+    createGrid(currentSize);
 }
-const resetButton = document.querySelector('#reset');
+
+// create initial 16x16 grid
+createGrid(currentSize);
+
 resetButton.addEventListener('click', function() {
-    let squares = squaresGrid.querySelectorAll('div');
-    squares.forEach(
-        function(currentValue){
-            currentValue.style.backgroundColor = 'white';
-        } 
-    )
-    do{
-        let response = prompt("Enter pixel size (max 100): ");
-        if(response <= 0 || response > 100 || isNaN(response)){
-            alert("Please enter a valid non-zero number between 1-100.");
-            continue;
-        } else {
-            drawGrid(response);
-            break;
-        }      
-    }while(true)
+    reset();
 });

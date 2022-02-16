@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <title>Etch-&-Sketch</title>
-        <link rel="stylesheet" href="styles.css">
-        <script src="etch-a-sketch.js" defer></script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Etch-&-Sketch</title />
+        <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
         <h1>Etch & Sketch</h1>
-        <button id="reset">Reset</button>
-        <div class="grid">
-            
+        <div class="controls">
+            <button id="reset">Reset</button>
+            <button id="rainbow">Rainbow Mode</button>
+            <label for="size">Size of Grid [1-100]: </label>
+            <input type="number" id="size" name="size" min="1" max="100" value="16">
         </div>
+        <div class="board">  
+            <div class="grid"></div>
+        </div>
+        <script src="etch-a-sketch.js"></script>
     </body>
 </html>
