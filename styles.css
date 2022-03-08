@@ -7,6 +7,10 @@ body {
     padding: 2em;
 }
 
+h1 {
+    padding: 20px;
+}
+
 .grid {
     width: 550px;
     height: 550px;
@@ -21,4 +25,8 @@ body {
     width: 6.25%;
     border: 1px solid black;
     flex: 0 1 auto;
+}
+
+.controls {
+    padding: 20px;
 }

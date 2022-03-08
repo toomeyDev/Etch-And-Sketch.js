@@ -1,7 +1,7 @@
 const grid = document.querySelector(".grid");
 const resetButton = document.querySelector("#reset");
-const rainbowCheck = document.querySelector("#rainbow-mode");
-const numberBox = document.querySelector("#size");
+var rainbowCheck = document.querySelector("#rainbow-mode");
+var numberBox = document.querySelector("#size");
 
 let isRainbow; // track if rainbow mode toggle is on or off
 if(rainbowCheck.checked) {
@@ -9,7 +9,9 @@ if(rainbowCheck.checked) {
 } else { isRainbow = false; }
 
 rainbowCheck.addEventListener('change', function(){
-    colorize();
+    if (this.checked) {
+        isRainbow = true;
+    } else { isRainbow = false; }
 });
 
 let currentSize = numberBox.value;
