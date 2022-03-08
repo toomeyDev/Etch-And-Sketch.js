@@ -13,6 +13,11 @@ rainbowCheck.addEventListener('change', function(){
 });
 
 let currentSize = numberBox.value;
+if(currentSize > 100) {
+    alert("Size cannot be greater than 100 x 100.")
+    currentSize = 100;
+    numberBox.value = 100;
+}
 
 function createGrid(size) {
     for(let i = 0; i < size; i++) {
@@ -38,6 +43,11 @@ function createGrid(size) {
 function reset() {
     grid.innerHTML = "";
     currentSize = numberBox.value;
+    if(currentSize > 100) {
+        alert("Size cannot be greater than 100 x 100.")
+        currentSize = 100;
+        numberBox.value = 100;
+    }
     createGrid(currentSize);
 }
 
