@@ -2,6 +2,7 @@ const grid = document.querySelector(".grid");
 const resetButton = document.querySelector("#reset");
 var rainbowCheck = document.querySelector("#rainbow-mode");
 var numberBox = document.querySelector("#size");
+var mouseDown = false
 
 let isRainbow; // track if rainbow mode toggle is on or off
 if(rainbowCheck.checked) {
@@ -31,11 +32,22 @@ function createGrid(size) {
             tile.style.width = `${scale}%`;
             tile.style.height = `${scale}%`;
 
+			// handle mouseup && mousedown events for page
+		    document.addEventListener('mousedown', function(){
+		    	mouseDown = true
+		    });
+
+		    document.addEventListener('mouseup', function(){
+		    	mouseDown = false
+		    })
+			
             // add event listener for mouseover event
             tile.addEventListener('mouseover', function() {
-                colorize(tile);
+				if(mouseDown){
+                	colorize(tile);
+                }
             });
-
+			
             tile.classList.add('tile');
             grid.appendChild(tile);
         }
